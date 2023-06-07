@@ -14,7 +14,7 @@ function App() {
 
     let loadedModel;
     const glftLoader = new GLTFLoader();
-    glftLoader.load(`https://storage.yandexcloud.net/3ddesk/models/husky.gltf`, (gltfScene) => {
+    glftLoader.load(`https://storage.yandexcloud.net/3ddesk/models/belyash.gltf`, (gltfScene) => {
       loadedModel = gltfScene;
 
       // gltfScene.scene.rotation.y = Math.PI / 8;
