@@ -1,0 +1,11 @@
+Model Information:
+* title:	Belyash
+* source:	https://sketchfab.com/3d-models/belyash-a39209c0eb804a7da887777fd48f8c98
+* author:	MaxNRG (https://sketchfab.com/MaxNRG)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Belyash" (https://sketchfab.com/3d-models/belyash-a39209c0eb804a7da887777fd48f8c98) by MaxNRG (https://sketchfab.com/MaxNRG) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
