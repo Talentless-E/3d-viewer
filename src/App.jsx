@@ -1,44 +1,34 @@
-/* eslint-disable no-unused-vars */
-import { useEffect } from 'react';
+/* eslint-disable react/no-unknown-property */
+import { Canvas } from "@react-three/fiber";
+import { useGLTF, Stage, PresentationControls, Stats } from "@react-three/drei";
 
-import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-
-import SceneInit from './lib/Sceneinit';
-
-function App() {
-  useEffect(() => {
-    const test = new SceneInit('myThreeJsCanvas');
-    test.initialize();
-    test.animate();
-
-    let loadedModel;
-    const glftLoader = new GLTFLoader();
-    glftLoader.load(`https://storage.yandexcloud.net/3ddesk/models/belyash.gltf`, (gltfScene) => {
-      loadedModel = gltfScene;
-
-      // gltfScene.scene.rotation.y = Math.PI / 8;
-      gltfScene.scene.position.y = -5;
-      gltfScene.scene.scale.set(80, 80, 80);
-      test.scene.add(gltfScene.scene);
-    });
-
-    // const animate = () => {
-    //   if (loadedModel) {
-    //     loadedModel.scene.rotation.x += 0.01;
-    //     loadedModel.scene.rotation.y += 0.01;
-    //     loadedModel.scene.rotation.z += 0.01;
-    //   }
-    //   requestAnimationFrame(animate);
-    // };
-    // animate();
-  }, []);
-
-  return (
-    <div>
-      <canvas id="myThreeJsCanvas" />
-    </div>
-  );
+function Model(props) {
+   const { scene } = useGLTF("/belyash/belyash.gltf");
+   return <primitive object={scene} {...props} />;
 }
 
-export default App;
+export default function App() {
+   return (
+      <Canvas
+         dpr={[1, 2]}
+         camera={{ fov: 45 }}
+         style={{ position: "absolute", width: '100%', height: '100%', top: '0' }}
+      >
+         <color attach="background" args={["#a0a0a0"]} />
+         <PresentationControls
+            speed={1.5}
+            global
+            zoom={0.5}
+            polar={[-0.1, Math.PI / 4]}
+         >
+            <Stage shadows="accumulative">
+            <mesh castShadows />
+               <Model scale={0.01} />
+            </Stage>
+            <Stats />
+         </PresentationControls>
+      </Canvas>
+   );
+}
+
+//https://storage.yandexcloud.net/3ddesk/models/belyash.gltf
